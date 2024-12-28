@@ -1,10 +1,12 @@
+require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const mysqlPool = require("./config/db");
-require("dotenv").config();
+const cors = require('cors'); // Import the cors middleware
 
 const app = express();
 
+app.use(cors()); // Use the cors middleware
 app.use(express.json());
 app.use(morgan("dev"));
 

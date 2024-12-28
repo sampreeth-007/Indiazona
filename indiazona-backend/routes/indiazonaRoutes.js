@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../config/db");
+// const db = require("../config/db");
 // const { v4: uuidv4 } = require("uuid");
-const { getAllProducts } = require("../controllers/indiazonaControllers");
+const { listAllProducts } = require("../controllers/indiazonaControllers");
+const { validatorForProduct } = require("../commons/validator");
 
-router.get("/list", getAllProducts);
+router.get("/list", validatorForProduct(), listAllProducts);
 
 module.exports = router;
